@@ -1,0 +1,63 @@
+
+	CLASSIFIEDS INSTALLATION OVERVIEW
+
+Quick Start
+-----------
+En este archivo se debe documentar todos los pasos y cosideraciones que se deben tener en cuenta 
+para instalar el sitio 
+
+1. INSTALL CRONJOBS
+-------------------
+
+1.1 El sitio requiere que se instalen los siguietnes cronjobs:
+
+1.1.1 Cronjob de publicacion de anuncios.
+     runcronjobs.php publishclassifieds
+   
+1.1.2. Cronjob de despublicacion de anuncios.
+     runcronjobs.php expireclassifieds
+   
+1.1.3. Cronjob de publicacion de anuncios gratis.
+     runcronjobs.php publishclassifiedsfree
+   
+1.1.4. Cronjob de despublicacion de anuncios gratis.
+     runcronjobs.php expireclassifiedsfree
+   
+1.1.5. Cronjob de notificacion de anuncios a expirar.
+     runcronjobs.php sendnotification
+	  
+1.1.6. Cronjob de sitemap xml.
+     runcronjobs sitemap
+
+1.2 Por favor seguir las instrucciones del documento doc/cronjobs.txt y etc/crontab/crontab.txt
+
+
+2. INSTALL VIRTUALHOST
+-----------------------
+2.1 HTTP virtualhost
+	
+	Copiar el archivo extension/classifieds/etc/virtualhost/classifieds.conf y ponerlo en los archivos 
+	de virtualhost que el servidor Apache usara para servir el sitio.
+	
+	Editarlo para que se ajuste a las necesidades del servidor y la instalación.
+
+2.1 HTTPS virtualhost (SSL)
+	
+	Copiar el archivo extension/classifieds/etc/virtualhost/classifieds.conf.ssl y ponerlo en los archivos 
+	de virtualhost con soporte SSL que el servidor Apache usara para servir el sitio de forma segura.
+	
+	Editarlo para que se ajuste a las necesidades del servidor y la instalación.	
+	
+	Para configurar los certificados que se usaran editar el archivo:
+	
+	extension/classifieds/etc/virtualhost/includes/sslsupport.vhinc.ssl
+	
+3. 3. NOTIFIACIONES
+
+3.1 Localizar el site.ini.append del sitio configurar los siguientes items con las direcciones que les correspondera en produccion:
+
+[MailSettings]
+EmailSender
+EmailReplayTo
+
+AdminEmail

@@ -1,0 +1,5 @@
+MAILTO=""
+PHPEXEC=/usr/local/php/bin/php
+EZPUBLISHROOT=public_html
+
+0 0 * * * cd $EZPUBLISHROOT && $PHPEXEC runcronjobs sitemap >> extension/classifieds/var/log/sitemap.log 2>&1
